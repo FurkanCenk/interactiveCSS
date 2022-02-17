@@ -1,0 +1,263 @@
+
+body{
+    margin: 1.5em;
+    background-color: white;
+    font-family: 'poppins', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.hero-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../images/photo-1.jpg');
+    background-size: cover;
+    background-position-x: 20%;
+    background-position-y: 20%;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    animation: introLoad 2s forwards;
+    //overflow: hidden;
+}
+
+.logo{
+    color: black;
+    font-weight: bold;
+}
+
+
+
+nav{
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: rgb(255, 255, 255);
+    height: 100vh;
+    width: 50%;
+    z-index: 4;
+    text-transform: uppercase;
+    transform: translateX(100%);
+    transition: transfrom .5s ease-in-out;
+    
+    ul{
+        list-style-type: none;
+        padding: 0;
+        margin-top: 8em;
+        a{
+            color: black;
+            padding: .75em 2em;
+            display: block;
+
+            &:hover {
+                background-color: rgb(196, 196, 196);
+            }
+        }
+    }
+
+    .close{
+        margin: 0.5em;
+        float: right;
+    }
+}
+
+.show-list{
+    transform: translateX(0) !important;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+
+    svg{
+        width: 1.7em;
+        margin-top: -.6em;
+        cursor: pointer;
+        path{
+            fill: black;
+        }
+    }
+}
+
+h1{
+    font-size: 3rem;
+    margin-top: 2em;
+    line-height: 3.6rem;
+}
+
+.subhead{
+    font-size: 1.4rem;
+    color: black;
+}
+
+.hero{
+    color: black;
+    height: 90vh;
+    animation: moveDown 1s ease-in-out forwards;
+    opacity: 0;
+
+    svg{
+        stroke: black;
+        position: absolute;
+        margin-top: 2em;
+        width: .9em;
+        animation: moveArrow 1s alternate-reverse infinite;
+
+        path{
+            fill: black;
+        }
+    }
+}
+
+.more-info{
+    img{
+        width: 100%;
+        object-fit: cover;
+        height: 12em;
+    }
+
+    .title{
+        font-weight: bold;
+        font-size: 1.25rem;
+    }
+
+    .desc{
+        line-height: 1.5rem;
+    }
+}
+
+
+
+@media only screen and (min-width: 680px){
+
+    body{
+        margin: 1.5em 5em;
+        background-color: white;
+        font-family: 'poppins', sans-serif;
+    }
+    
+}
+
+@media only screen and (min-width: 920px){
+
+    .menu{
+        display: none;
+    }
+
+    nav{
+        transform: translateX(0);
+        background: none;
+        position: unset;
+        width: auto;
+        height: auto;
+        display: block;
+
+        svg.close{
+            display: none;
+        }
+
+        ul{
+            display: flex;
+            margin: 0;
+
+            a{
+                padding: .5em 1.5em;
+                font-size: 1rem;
+            };
+        }
+    }
+
+    .hero-img{
+        right: 0;
+        left: unset;
+        width: 50%;
+        height: 42em;
+    }
+
+    .hero{
+        width: 45%;
+
+        
+    }
+
+    .logo{
+        span{
+            color: rgb(206, 0, 69);
+        }
+    }
+
+    .feature{
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 3em;
+        margin-bottom: 5em;
+
+        img{
+            width: 25em;
+        }
+
+        .content{
+            text-align: right;
+            width: 25em;
+        }
+    }
+
+    .feature.left{
+        grid-template-areas: 
+        "left right";
+
+        img{
+            grid-area: left;
+            
+        }
+
+        .content{
+            text-align: left;
+            width: 25em;
+            justify-self: left;
+            
+        }
+    }
+    
+}
+
+@media only screen and (min-width: 1200px){
+    .container{
+        width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+
+@keyframes introLoad{
+    from{
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    to{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+@keyframes moveArrow{
+    from{
+        transform: translateY(-25px);
+    }
+    to{
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes moveDown {
+    from {
+        transform: translateY(-100px)
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
